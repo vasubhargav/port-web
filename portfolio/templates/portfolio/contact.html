@@ -1,0 +1,92 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Contact | Vasu Bhargav{% endblock %}
+
+{% block content %}
+<div class="contact-grid">
+  <div>
+    <div class="badge-label">GET IN TOUCH</div>
+    <h1 class="hero-title" style="font-size: 3rem;">
+      Let's build <br>
+      something great <br>
+      <span class="gradient-text">together.</span>
+    </h1>
+    <p class="hero-desc">
+      Have a project idea, a question, or just want to say hi? I'm always open to interesting conversations and new opportunities.
+    </p>
+
+    <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="info-icon"><i data-lucide="mail"></i></div>
+        <div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Email</div>
+          <div style="font-weight: 700; font-size: 0.95rem;">vasubhargav07@gmail.com</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="info-icon"><i data-lucide="map-pin"></i></div>
+        <div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Location</div>
+          <div style="font-weight: 700; font-size: 0.95rem;">Meerut, Uttar Pradesh, India</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="info-icon"><i data-lucide="phone"></i></div>
+        <div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Phone</div>
+          <div style="font-weight: 700; font-size: 0.95rem;">+91 98765 43210</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://github.com" target="_blank" class="social-icon"><i data-lucide="github"></i></a>
+      <a href="https://linkedin.com" target="_blank" class="social-icon"><i data-lucide="linkedin"></i></a>
+      <a href="https://instagram.com" target="_blank" class="social-icon"><i data-lucide="instagram"></i></a>
+      <a href="https://youtube.com" target="_blank" class="social-icon"><i data-lucide="youtube"></i></a>
+      <a href="https://twitter.com" target="_blank" class="social-icon"><i data-lucide="twitter"></i></a>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+      <div class="info-icon" style="width: 32px; height: 32px;"><i data-lucide="send" style="width: 16px;"></i></div>
+      <h3 style="font-size: 1.25rem; font-weight: 700;">Send Me a Message</h3>
+    </div>
+    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+      Fill out the form and I'll get back to you as soon as possible.
+    </p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label>Your Email *</label>
+          <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Subject *</label>
+        <input type="text" name="subject" class="form-control" placeholder="What's this about?" required>
+      </div>
+
+      <div class="form-group">
+        <label>Message *</label>
+        <textarea name="message" rows="4" class="form-control" placeholder="Tell me more about your idea..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; border-radius: 10px;">
+        <i data-lucide="send" style="width: 16px;"></i> Send Message
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
