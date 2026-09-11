@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pk(pjo_tc#)7y!^1vj*zv3iy6($-*r!sqx)*=)76ucjq1+51hw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,15 +40,16 @@ INSTALLED_APPS = [
     'portfolio',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',  # <-- Must be before AuthenticationMiddleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -118,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS= [ BASE_DIR  / 'static']
-STATIC_ROOT = [BASE_DIR, 'staticfiles']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email
